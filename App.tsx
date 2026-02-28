@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'sell' | 'buy'>('sell');
 
   return (
-    <div className="font-sans text-slate-900 bg-gray-50 selection:bg-primary-100 selection:text-primary-900">
+    <div className="font-sans text-slate-900 bg-[#fdf2f8] selection:bg-gold-500/30 selection:text-gold-900">
       <Navbar />
       <main>
         <Hero />

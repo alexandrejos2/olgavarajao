@@ -10,10 +10,10 @@ const LogoSection: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
             {/* Logo RE/MAX White */}
             <div className="h-12 flex flex-col justify-center items-center">
-              <span className="text-xl font-serif font-bold text-slate-900 leading-none">RE/MAX White</span>
-              <span className="text-[8px] tracking-[0.3em] font-bold text-slate-500">COIMBRA</span>
+              <span className="text-xl font-serif font-bold text-slate-900 leading-none">RE/MAX Family</span>
+              <span className="text-[8px] tracking-[0.3em] font-bold text-slate-500">VILA NOVA DE GAIA</span>
             </div>
-            
+
             {/* Partner Placeholder 1: Maxfinance */}
             <div className="h-10 flex items-center">
               <span className="text-lg font-bold text-slate-800 tracking-tighter italic">MAX<span className="text-gold-500 italic">FINANCE</span></span>

@@ -14,7 +14,7 @@ interface Errors {
   [key: string]: string;
 }
 
-const WHATSAPP_NUMBER = '351938719264';
+const WHATSAPP_NUMBER = '351912290463';
 
 const tipologias = [
   'Moradia',
@@ -103,7 +103,7 @@ const MultiStepForm: React.FC = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      `Olá Carlos! Pedi uma análise para o meu imóvel:\n• Zona: ${formData.zona}\n• Tipo: ${formData.tipologia}\n• Estado: ${formData.estado}\n\nO meu nome é ${formData.nome}.`
+      `Olá Andreia! Pedi uma análise para o meu imóvel:\n• Zona: ${formData.zona}\n• Tipo: ${formData.tipologia}\n• Estado: ${formData.estado}\n\nO meu nome é ${formData.nome}.`
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
@@ -133,20 +133,18 @@ const MultiStepForm: React.FC = () => {
                   <div key={label} className="flex items-center">
                     <div className="flex flex-col items-center gap-1.5">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                          isCompleted
-                            ? 'bg-gold-500 text-white'
-                            : isActive
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${isCompleted
+                          ? 'bg-gold-500 text-white'
+                          : isActive
                             ? 'bg-slate-900 text-white'
                             : 'bg-slate-100 text-slate-400'
-                        }`}
+                          }`}
                       >
                         {isCompleted ? <CheckCircle className="w-4 h-4" /> : stepNum}
                       </div>
                       <span
-                        className={`text-xs font-medium transition-colors ${
-                          isActive ? 'text-slate-900' : isCompleted ? 'text-gold-500' : 'text-slate-400'
-                        }`}
+                        className={`text-xs font-medium transition-colors ${isActive ? 'text-slate-900' : isCompleted ? 'text-gold-500' : 'text-slate-400'
+                          }`}
                       >
                         {label}
                       </span>
@@ -174,9 +172,8 @@ const MultiStepForm: React.FC = () => {
 
           <div
             ref={formRef}
-            className={`px-8 pb-10 transition-all duration-250 ${
-              animating ? (slideDir === 'left' ? 'opacity-0 -translate-x-4' : 'opacity-0 translate-x-4') : 'opacity-100 translate-x-0'
-            }`}
+            className={`px-8 pb-10 transition-all duration-250 ${animating ? (slideDir === 'left' ? 'opacity-0 -translate-x-4' : 'opacity-0 translate-x-4') : 'opacity-100 translate-x-0'
+              }`}
             style={{ transition: 'opacity 0.25s ease, transform 0.25s ease' }}
           >
             {step === 1 && (
@@ -190,10 +187,9 @@ const MultiStepForm: React.FC = () => {
                       type="text"
                       value={formData.zona}
                       onChange={(e) => handleChange('zona', e.target.value)}
-                      placeholder="Ex: Centro de Coimbra, Bairro de Santiago..."
-                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${
-                        errors.zona ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
-                      }`}
+                      placeholder="Ex: Mafamude, Canidelo..."
+                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${errors.zona ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
+                        }`}
                     />
                     {errors.zona && <p className="mt-1.5 text-xs text-red-500">{errors.zona}</p>}
                   </div>
@@ -206,9 +202,8 @@ const MultiStepForm: React.FC = () => {
                       <select
                         value={formData.tipologia}
                         onChange={(e) => handleChange('tipologia', e.target.value)}
-                        className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${
-                          errors.tipologia ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
-                        } ${!formData.tipologia ? 'text-slate-400' : 'text-slate-900'}`}
+                        className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${errors.tipologia ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
+                          } ${!formData.tipologia ? 'text-slate-400' : 'text-slate-900'}`}
                       >
                         <option value="" disabled>Selecione o tipo</option>
                         {tipologias.map((t) => (
@@ -228,9 +223,8 @@ const MultiStepForm: React.FC = () => {
                       <select
                         value={formData.estado}
                         onChange={(e) => handleChange('estado', e.target.value)}
-                        className={`w-full px-4 py-3.5 rounded-xl border text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${
-                          errors.estado ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
-                        } ${!formData.estado ? 'text-slate-400' : 'text-slate-900'}`}
+                        className={`w-full px-4 py-3.5 rounded-xl border text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${errors.estado ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
+                          } ${!formData.estado ? 'text-slate-400' : 'text-slate-900'}`}
                       >
                         <option value="" disabled>Selecione o estado</option>
                         {estadosImovel.map((e) => (
@@ -265,14 +259,14 @@ const MultiStepForm: React.FC = () => {
                 </p>
                 <div className="flex items-center gap-4 bg-gold-50 border border-gold-100 rounded-xl px-4 py-4 mb-6">
                   <img
-                    src="https://res.cloudinary.com/dxrk58emm/image/upload/v1770740487/e105d692-cbce-42be-afba-3ff12b8d9443_ifeape.jpg"
-                    alt="Carlos Matos"
+                    src="https://res.cloudinary.com/dxrk58emm/image/upload/v1772275053/andreia-rocha_m8jqrd.jpg?refresh=1"
+                    alt="Andreia Rocha"
                     className="w-14 h-14 rounded-full object-cover object-top flex-shrink-0 border-2 border-gold-400 shadow-md"
                   />
                   <p className="text-sm text-slate-700 leading-snug font-medium">
                     Análise realizada diretamente por{' '}
-                    <span className="font-bold text-slate-900">Carlos Matos</span>
-                    , especialista em Coimbra.
+                    <span className="font-bold text-slate-900">Andreia Rocha</span>
+                    , especialista em Vila Nova de Gaia.
                   </p>
                 </div>
                 <div className="space-y-5">
@@ -285,9 +279,8 @@ const MultiStepForm: React.FC = () => {
                       value={formData.nome}
                       onChange={(e) => handleChange('nome', e.target.value)}
                       placeholder="O seu nome completo"
-                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${
-                        errors.nome ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
-                      }`}
+                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${errors.nome ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
+                        }`}
                     />
                     {errors.nome && <p className="mt-1.5 text-xs text-red-500">{errors.nome}</p>}
                   </div>
@@ -301,9 +294,8 @@ const MultiStepForm: React.FC = () => {
                       value={formData.telefone}
                       onChange={(e) => handleChange('telefone', e.target.value)}
                       placeholder="+351 9XX XXX XXX"
-                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${
-                        errors.telefone ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
-                      }`}
+                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${errors.telefone ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
+                        }`}
                     />
                     {errors.telefone && <p className="mt-1.5 text-xs text-red-500">{errors.telefone}</p>}
                   </div>
@@ -317,9 +309,8 @@ const MultiStepForm: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => handleChange('email', e.target.value)}
                       placeholder="o.seu.email@exemplo.com"
-                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${
-                        errors.email ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
-                      }`}
+                      className={`w-full px-4 py-3.5 rounded-xl border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/40 focus:border-gold-500 transition-all ${errors.email ? 'border-red-400 bg-red-50' : 'border-slate-200 bg-slate-50'
+                        }`}
                     />
                     {errors.email && <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>}
                   </div>
@@ -340,7 +331,7 @@ const MultiStepForm: React.FC = () => {
                     />
                     <span className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
                       Autorizo o contacto por parte de{' '}
-                      <span className="font-semibold text-slate-700">Carlos Matos</span>
+                      <span className="font-semibold text-slate-700">Andreia Rocha</span>
                       , representante da RE/MAX, para efeitos da análise solicitada, nos termos da política de privacidade.
                     </span>
                   </label>

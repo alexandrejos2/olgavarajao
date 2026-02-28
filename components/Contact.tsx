@@ -15,7 +15,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
     },
     buy: {
       title: "Vamos encontrar a sua nova casa?",
-      description: "Disponível para ajudar na procura, análise e negociação do seu próximo investimento imobiliário em Coimbra."
+      description: "Disponível para ajudar na procura, análise e negociação do seu próximo investimento imobiliário em Vila Nova de Gaia."
     }
   };
 
@@ -25,7 +25,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
     <section id="contactos" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
+
           {/* Form Side */}
           <div>
             <Reveal key={`title-${activeTab}`}>
@@ -43,20 +43,20 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
               <Reveal delay={0.3} width="100%">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">Nome</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30 outline-none transition-all"
                     placeholder="Seu nome completo"
                   />
                 </div>
               </Reveal>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Reveal delay={0.4} width="100%">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30 outline-none transition-all"
                       placeholder="exemplo@email.com"
                     />
@@ -65,8 +65,8 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                 <Reveal delay={0.45} width="100%">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Telefone</label>
-                    <input 
-                      type="tel" 
+                    <input
+                      type="tel"
                       className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30 outline-none transition-all"
                       placeholder="910 000 000"
                     />
@@ -77,7 +77,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
               <Reveal delay={0.5} width="100%">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">Mensagem</label>
-                  <textarea 
+                  <textarea
                     rows={4}
                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30 outline-none transition-all resize-none"
                     placeholder="Como posso ajudar?"
@@ -91,7 +91,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     <Send className="w-5 h-5 mr-2" />
                     Enviar Mensagem
                   </button>
-                  <a href="https://wa.me/351938719264" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center px-8 py-4 bg-green-50 text-green-700 border border-green-200 rounded-lg font-semibold hover:bg-green-100 transition-colors">
+                  <a href="https://wa.me/351912290463" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center px-8 py-4 bg-green-50 text-green-700 border border-green-200 rounded-lg font-semibold hover:bg-green-100 transition-colors">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Falar por WhatsApp
                   </a>
@@ -105,7 +105,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
             <Reveal delay={0.4} width="100%">
               <div className="bg-slate-50 p-10 rounded-2xl border border-slate-100">
                 <h3 className="text-xl font-bold text-slate-900 mb-8">Contactos Diretos</h3>
-                
+
                 <div className="space-y-8">
                   {/* 1. Telefone */}
                   <div className="flex items-start">
@@ -114,8 +114,8 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-1">Telefone</p>
-                      <a href="tel:938719264" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
-                        938 719 264
+                      <a href="tel:912290463" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
+                        912 290 463
                       </a>
                       <p className="text-xs text-slate-400 mt-1">(Chamada para rede móvel nacional)</p>
                     </div>
@@ -128,8 +128,8 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-1">Email</p>
-                      <a href="mailto:carlos.matos@remax.pt" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
-                        carlos.matos@remax.pt
+                      <a href="mailto:afmrocha@remax.pt" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
+                        afmrocha@remax.pt
                       </a>
                     </div>
                   </div>
@@ -141,9 +141,8 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-1">Escritório</p>
-                      <p className="text-slate-900 font-medium">RE/MAX White</p>
-                      <p className="text-slate-700">Estrada da Beira 46 e 50</p>
-                      <p className="text-slate-700">3030-173 Coimbra</p>
+                      <p className="text-slate-900 font-medium">RE/MAX Family</p>
+                      <p className="text-slate-700">R. Sport Clube de Canidelo 24<br />4400-594 Canidelo</p>
                     </div>
                   </div>
                 </div>
@@ -151,7 +150,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                 {/* Google Map Embed */}
                 <div className="mt-10 rounded-xl overflow-hidden shadow-sm border border-slate-200 h-64 bg-slate-200 relative">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12553.431296456334!2d-8.429442536979765!3d40.206760281319696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd22f985e92c9979%3A0x33d164858bac158!2sRE%2FMAX%20White!5e1!3m2!1spt-PT!2spt!4v1772175167130!5m2!1spt-PT!2spt"
+                    src="https://www.google.com/maps?q=R.+Sport+Clube+de+Canidelo+24,+4400-594+Canidelo&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

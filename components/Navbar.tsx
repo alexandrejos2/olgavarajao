@@ -19,20 +19,19 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
-      }`}
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-3 group cursor-pointer">
           <div className="flex flex-col">
             <span className={`text-2xl font-serif font-bold tracking-tight ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
-              CARLOS MATOS
+              ANDREIA ROCHA
             </span>
             <span className={`text-xs font-medium tracking-widest uppercase ${isScrolled ? 'text-gold-500' : 'text-gray-200'}`}>
-              RE/MAX White
+              RE/MAX Family
             </span>
           </div>
         </div>
@@ -43,30 +42,27 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-gold-500 ${
-                isScrolled ? 'text-slate-700' : 'text-white/90'
-              }`}
+              className={`text-sm font-medium transition-colors hover:text-gold-500 ${isScrolled ? 'text-slate-700' : 'text-white/90'
+                }`}
             >
               {link.name}
             </a>
           ))}
           <a
             href="/avaliacao"
-            className={`text-sm font-semibold transition-colors border-b-2 pb-0.5 ${
-              isScrolled
-                ? 'text-gold-600 border-gold-500 hover:text-gold-700'
-                : 'text-gold-400 border-gold-400/60 hover:text-gold-300'
-            }`}
+            className={`text-sm font-semibold transition-colors border-b-2 pb-0.5 ${isScrolled
+              ? 'text-gold-600 border-gold-500 hover:text-gold-700'
+              : 'text-gold-400 border-gold-400/60 hover:text-gold-300'
+              }`}
           >
             Avaliar Imóvel
           </a>
           <a
             href="#contactos"
-            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
-              isScrolled
-                ? 'bg-secondary-900 text-white hover:bg-gray-700'
-                : 'bg-white text-secondary-900 hover:bg-gray-100'
-            }`}
+            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${isScrolled
+              ? 'bg-secondary-900 text-white hover:bg-gray-700'
+              : 'bg-white text-secondary-900 hover:bg-gray-100'
+              }`}
           >
             Agendar conversa
           </a>

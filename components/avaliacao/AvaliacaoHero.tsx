@@ -16,7 +16,7 @@ const AvaliacaoHero: React.FC<AvaliacaoHeroProps> = ({ onCTAClick }) => {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 border border-gold-500/30 rounded-full bg-gold-500/10">
               <div className="w-1.5 h-1.5 rounded-full bg-gold-500"></div>
               <span className="text-xs font-semibold tracking-widest uppercase text-gold-600">
-                Análise Estratégica · Coimbra
+                Análise Estratégica · Vila Nova de Gaia
               </span>
             </div>
           </Reveal>
@@ -24,7 +24,7 @@ const AvaliacaoHero: React.FC<AvaliacaoHeroProps> = ({ onCTAClick }) => {
           <Reveal delay={0.2}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">
               Qual é o valor real do seu imóvel em{' '}
-              <span className="text-gold-600">Coimbra?</span>
+              <span className="text-gold-600">Vila Nova de Gaia?</span>
             </h1>
           </Reveal>
 
@@ -55,14 +55,14 @@ const AvaliacaoHero: React.FC<AvaliacaoHeroProps> = ({ onCTAClick }) => {
                 <div className="flex-shrink-0 flex flex-col items-center gap-2">
                   <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-gold-400 ring-offset-2 ring-offset-white shadow-lg">
                     <img
-                      src="https://res.cloudinary.com/dxrk58emm/image/upload/v1770740487/e105d692-cbce-42be-afba-3ff12b8d9443_ifeape.jpg"
-                      alt="Carlos Matos Consultor"
+                      src="https://res.cloudinary.com/dxrk58emm/image/upload/v1772275053/andreia-rocha_m8jqrd.jpg?refresh=1"
+                      alt="Andreia Rocha Consultora"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <div className="text-center">
-                    <p className="text-sm font-bold text-slate-900 font-serif leading-tight">Carlos Matos</p>
-                    <p className="text-xs text-slate-500 leading-tight">Consultor RE/MAX White</p>
+                    <p className="text-sm font-bold text-slate-900 font-serif leading-tight">Andreia Rocha</p>
+                    <p className="text-xs text-slate-500 leading-tight">Consultora RE/MAX Family</p>
                   </div>
                 </div>
                 <div className="flex gap-8">

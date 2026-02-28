@@ -18,13 +18,13 @@ const About: React.FC = () => {
 
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] w-full min-h-[500px] lg:min-h-[600px] group">
                   <img
-                    src="https://res.cloudinary.com/dxrk58emm/image/upload/v1770740487/e105d692-cbce-42be-afba-3ff12b8d9443_ifeape.jpg"
-                    alt="Carlos Matos Consultor"
+                    src="https://res.cloudinary.com/dxrk58emm/image/upload/v1772275053/andreia-rocha_m8jqrd.jpg?refresh=1"
+                    alt="Andreia Rocha Consultora"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-slate-900/90 to-transparent p-8">
-                    <p className="text-white font-serif text-2xl font-bold">Carlos Matos</p>
-                    <p className="text-gray-300 text-sm tracking-widest uppercase mt-1">RE/MAX White</p>
+                    <p className="text-white font-serif text-2xl font-bold">Andreia Rocha</p>
+                    <p className="text-gray-300 text-sm tracking-widest uppercase mt-1">RE/MAX Family</p>
                   </div>
                 </div>
               </div>
@@ -36,8 +36,8 @@ const About: React.FC = () => {
             <div className="mb-6">
               <Reveal>
                 <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">
-                  Profissionalismo.<br/>
-                  Estratégia.<br/>
+                  Profissionalismo.<br />
+                  Estratégia.<br />
                   <span className="text-gold-500">Compromisso com Resultados.</span>
                 </h2>
               </Reveal>
@@ -49,7 +49,7 @@ const About: React.FC = () => {
             <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
               <Reveal delay={0.3}>
                 <p>
-                  Consultor imobiliário RE/MAX com mais de 6 anos de experiência em Coimbra.
+                  Consultor imobiliário RE/MAX com mais de 6 anos de experiência em Vila Nova de Gaia.
                   Conheço profundamente o mercado local e acompanho cada venda com estratégia, rigor e total transparência.
                 </p>
               </Reveal>
@@ -74,7 +74,7 @@ const About: React.FC = () => {
                   <p className="text-sm text-slate-500 mt-1">Proprietários Acompanhados</p>
                 </div>
               </Reveal>
-              
+
               <Reveal delay={0.7} width="100%">
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
                   <Award className="w-8 h-8 text-gold-500 mb-3" />
@@ -86,7 +86,7 @@ const About: React.FC = () => {
               <Reveal delay={0.8} width="100%">
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
                   <MapPin className="w-8 h-8 text-gold-500 mb-3" />
-                  <h3 className="text-xl font-bold text-slate-900">Coimbra</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Vila Nova de Gaia</h3>
                   <p className="text-sm text-slate-500 mt-1">Zona de Atuação</p>
                 </div>
               </Reveal>

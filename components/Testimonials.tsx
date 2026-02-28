@@ -7,7 +7,7 @@ import Reveal from './Reveal';
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    text: "O Carlos foi de extrema importância durante todo processo, mesmo após a assinatura da escritura ele tem se mostrado super disponível para nos ajudar.\n\nRecomendo muito seu trabalho e resumiria Carlos em 3 palavras: Simpático, Prestativo e Muito Profissional\n\nObrigado Carlos !",
+    text: "A Andreia foi de extrema importância durante todo o processo, mesmo após a assinatura da escritura ela tem se mostrado super disponível para nos ajudar.\n\nRecomendo muito o seu trabalho e resumiria a Andreia em 3 palavras: Simpática, Prestativa e Muito Profissional\n\nObrigada Andreia !",
     author: "Talita Afonso",
     role: "Cliente"
   },

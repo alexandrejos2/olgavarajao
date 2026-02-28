@@ -11,7 +11,7 @@ const stats = [
   },
   {
     icon: MapPin,
-    value: 'Coimbra',
+    value: 'Vila Nova de Gaia',
     label: 'Especialização local',
     sub: 'conhecimento profundo do mercado',
   },

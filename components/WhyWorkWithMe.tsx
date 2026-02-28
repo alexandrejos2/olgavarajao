@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 
 const WhyWorkWithMe: React.FC = () => {
   return (
-    <section id="porque-eu" className="py-24 text-white relative overflow-hidden" style={{backgroundColor: '#0c1f3f'}}>
+    <section id="porque-eu" className="py-24 text-white relative overflow-hidden" style={{ backgroundColor: '#B89B9B' }}>
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-widest text-gold-500 mb-6">

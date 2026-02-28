@@ -1,57 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="pt-PT" class="scroll-smooth">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Carlos Matos | Consultor Imobiliário</title>
-    <meta name="description" content="Vender o Seu Imóvel com Confiança Começa com o Consultor Certo." />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['serif'],
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Andreia Rocha | Consultora Imobiliária</title>
+  <meta name="description" content="Vender o Seu Imóvel com Confiança Começa com o Consultor Certo." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['serif'],
+          },
+          colors: {
+            primary: {
+              50: '#fdf2f8',
+              100: '#fce7f3',
+              500: '#B89B9B',
+              600: '#a38383',
+              900: '#2C2C2C',
             },
-            colors: {
-              primary: {
-                50: '#f0f9ff',
-                100: '#e0f2fe',
-                500: '#1d6fa4',
-                600: '#155e8c',
-                900: '#0c3a5f',
-              },
-              secondary: {
-                900: '#0c1f3f',
-              },
-              gold: {
-                400: '#93c5fd',
-                500: '#1d6fa4',
-                600: '#155e8c',
-              },
-            }
+            secondary: {
+              900: '#2C2C2C',
+            },
+            gold: {
+              400: '#fda4af',
+              500: '#f43f5e',
+              600: '#e11d48',
+            },
           }
         }
       }
-    </script>
-    <style>
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #fdf2f8 !important;
+      /* Blush pink from IG */
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -63,8 +67,10 @@
 }
 </script>
 </head>
-  <body class="bg-gray-50 text-slate-800">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body class="bg-gray-50 text-slate-800">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>

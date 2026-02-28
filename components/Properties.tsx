@@ -12,7 +12,7 @@ const properties: Property[] = [
   {
     id: 1,
     title: "Apartamento T2 em Azurém",
-    location: "Coimbra",
+    location: "Vila Nova de Gaia",
     price: "Vendido",
     beds: 2,
     baths: 1,
@@ -24,7 +24,7 @@ const properties: Property[] = [
   {
     id: 2,
     title: "Moradia T3+1 em Banda",
-    location: "Coimbra",
+    location: "Vila Nova de Gaia",
     price: "Vendido",
     beds: 3,
     baths: 2,
@@ -36,7 +36,7 @@ const properties: Property[] = [
   {
     id: 3,
     title: "Moradia de Luxo",
-    location: "Coimbra",
+    location: "Vila Nova de Gaia",
     price: "Vendido",
     beds: 4,
     baths: 4,
@@ -216,11 +216,10 @@ const MobileCarousel: React.FC<{ isBuy: boolean }> = ({ isBuy }) => {
               stopAutoPlay();
               startAutoPlay();
             }}
-            className={`transition-all duration-300 rounded-full ${
-              index === realIndex
+            className={`transition-all duration-300 rounded-full ${index === realIndex
                 ? 'w-8 h-2 bg-gold-500'
                 : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-            }`}
+              }`}
             aria-label={`Ver imóvel ${index + 1}`}
           />
         ))}
@@ -253,7 +252,7 @@ const Properties: React.FC<PropertiesProps> = ({ activeTab }) => {
             <Reveal delay={0.2}>
               <p className="text-slate-600 text-lg max-w-2xl font-light">
                 {isBuy
-                  ? 'Encontre o imóvel ideal em Coimbra. Oportunidades selecionadas com qualidade, localização e valor que fazem a diferença.'
+                  ? 'Encontre o imóvel ideal em Vila Nova de Gaia. Oportunidades selecionadas com qualidade, localização e valor que fazem a diferença.'
                   : 'Alguns exemplos recentes de imóveis acompanhados, com foco em posicionamento, negociação e fecho seguro.'}
               </p>
             </Reveal>

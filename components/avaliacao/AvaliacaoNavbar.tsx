@@ -7,10 +7,10 @@ const AvaliacaoNavbar: React.FC = () => {
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex flex-col group">
           <span className="text-xl font-serif font-bold tracking-tight text-slate-900 group-hover:text-gold-600 transition-colors">
-            CARLOS MATOS
+            ANDREIA ROCHA
           </span>
           <span className="text-xs font-semibold tracking-widest uppercase text-gold-500">
-            RE/MAX White
+            RE/MAX Family
           </span>
         </Link>
         <Link

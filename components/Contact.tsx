@@ -15,7 +15,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
     },
     buy: {
       title: "Vamos encontrar a sua nova casa?",
-      description: "Disponível para ajudar na procura, análise e negociação do seu próximo investimento imobiliário em Vila Nova de Gaia."
+      description: "Disponível para ajudar na procura, análise e negociação do seu próximo investimento imobiliário em Évora e Alentejo."
     }
   };
 
@@ -91,7 +91,7 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     <Send className="w-5 h-5 mr-2" />
                     Enviar Mensagem
                   </button>
-                  <a href="https://wa.me/351912290463" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center px-8 py-4 bg-green-50 text-green-700 border border-green-200 rounded-lg font-semibold hover:bg-green-100 transition-colors">
+                  <a href="https://wa.me/351927411641" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex justify-center items-center px-8 py-4 bg-green-50 text-green-700 border border-green-200 rounded-lg font-semibold hover:bg-green-100 transition-colors">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Falar por WhatsApp
                   </a>
@@ -114,8 +114,8 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-1">Telefone</p>
-                      <a href="tel:912290463" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
-                        912 290 463
+                      <a href="tel:927411641" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
+                        927 411 641
                       </a>
                       <p className="text-xs text-slate-400 mt-1">(Chamada para rede móvel nacional)</p>
                     </div>
@@ -128,8 +128,8 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-1">Email</p>
-                      <a href="mailto:afmrocha@remax.pt" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
-                        afmrocha@remax.pt
+                      <a href="mailto:ovarajao@remax.pt" className="text-slate-900 font-medium hover:text-gold-500 transition-colors">
+                        ovarajao@remax.pt
                       </a>
                     </div>
                   </div>
@@ -141,8 +141,8 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                     </div>
                     <div>
                       <p className="text-sm text-slate-500 uppercase tracking-wide font-semibold mb-1">Escritório</p>
-                      <p className="text-slate-900 font-medium">RE/MAX Family</p>
-                      <p className="text-slate-700">R. Sport Clube de Canidelo 24<br />4400-594 Canidelo</p>
+                      <p className="text-slate-900 font-medium">RE/MAX Move Limiana</p>
+                      <p className="text-slate-700">4990-081 Pte. de Lima</p>
                     </div>
                   </div>
                 </div>
@@ -150,14 +150,14 @@ const Contact: React.FC<ContactProps> = ({ activeTab }) => {
                 {/* Google Map Embed */}
                 <div className="mt-10 rounded-xl overflow-hidden shadow-sm border border-slate-200 h-64 bg-slate-200 relative">
                   <iframe
-                    src="https://www.google.com/maps?q=R.+Sport+Clube+de+Canidelo+24,+4400-594+Canidelo&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.289126236097!2d-8.583392423981968!3d41.76022007278648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd25a5f9ac4c3d5f%3A0x28f1829953ca4b56!2sRemax%20Limiana!5e1!3m2!1spt-PT!2spt!4v1772805111693!5m2!1spt-PT!2spt"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen={true}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Localização RE/MAX White"
+                    title="Localização RE/MAX Move Limiana"
                     className="w-full h-full"
                   ></iframe>
                 </div>

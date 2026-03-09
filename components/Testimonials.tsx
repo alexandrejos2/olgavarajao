@@ -7,27 +7,27 @@ import Reveal from './Reveal';
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    text: "A Andreia foi de extrema importância durante todo o processo, mesmo após a assinatura da escritura ela tem se mostrado super disponível para nos ajudar.\n\nRecomendo muito o seu trabalho e resumiria a Andreia em 3 palavras: Simpática, Prestativa e Muito Profissional\n\nObrigada Andreia !",
-    author: "Talita Afonso",
-    role: "Cliente"
+    text: "O nosso muito obrigado, por todo o acompanhamento... Foi um longo caminho até à escritura, mas que a Olga empenhou em levar a um final feliz. Esteve sempre disponível... recomendo vivamente.",
+    author: "Família Silva",
+    role: "Proprietários"
   },
   {
     id: 2,
-    text: "Desde a avaliação até à escritura, senti-me sempre acompanhada. A estratégia de marketing fez toda a diferença nas visitas.",
-    author: "Maria de Lurdes",
-    role: "Vendedora"
+    text: "A Olga continuou a ser uma excelente profissional, sempre disponível para nos ajudar a esclarecer as nossas dúvidas... recomendaremos a Olga Varajão e a Remax a familiares, amigos e conhecidos.",
+    author: "Família Antunes",
+    role: "Vendedores"
   },
   {
     id: 3,
-    text: "Transparência total. Explicou-nos todos os passos e conseguiu um valor acima do que esperávamos. Recomendo vivamente.",
-    author: "Carlos Mendes",
-    role: "Investidor"
+    text: "Agradecemos todo o profissionalismo e dedicação! Acompanhou-nos durante todo o tempo em que a propriedade esteve a venda... no futuro se tivermos de comprar ou vender será a D. Olga que iremos contactar.",
+    author: "Família Cruz",
+    role: "Vendedores"
   }
 ];
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <section className="py-32 bg-remax-blue text-white relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gold-500 blur-3xl"></div>
@@ -35,19 +35,27 @@ const Testimonials: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <Reveal width="100%">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">O que dizem os clientes</h2>
+        <div className="text-center mb-20 flex flex-col items-center">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-gold-500/30 bg-gold-500/10">
+              <div className="w-1.5 h-1.5 bg-gold-400"></div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-gold-300">
+                Experiências Reais
+              </span>
+            </div>
           </Reveal>
-          <Reveal width="100%" delay={0.2}>
-            <div className="w-20 h-1 bg-gold-500 mx-auto rounded-full"></div>
+          <Reveal delay={0.1}>
+            <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif font-black mb-4 tracking-tight">O que dizem os clientes</h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="w-16 h-1 bg-gold-500 rounded-none mt-6"></div>
           </Reveal>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, index) => (
             <Reveal key={t.id} delay={index * 0.15} width="100%">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700 relative hover:border-gold-500/50 transition-colors duration-300 h-full overflow-hidden flex flex-col">
+              <div className="bg-remax-blue/50 backdrop-blur-sm rounded-none border border-gold-500/20 relative hover:border-gold-500/50 transition-colors duration-500 h-full overflow-hidden flex flex-col p-2">
                 {t.avatar && (
                   <div className="relative w-full h-72 flex-shrink-0">
                     <img

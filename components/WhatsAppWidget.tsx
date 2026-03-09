@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '351912290463';
+const WHATSAPP_NUMBER = '351965006443';
 const WHATSAPP_MESSAGE = 'Olá! Gostaria de saber mais informações sobre os seus serviços imobiliários.';
 
 const WhatsAppWidget: React.FC = () => {

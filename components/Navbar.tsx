@@ -25,13 +25,22 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-3 group cursor-pointer">
+        <div
+          className="flex items-center gap-3 group cursor-pointer"
+          onClick={() => {
+            if (window.location.pathname === '/') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              window.location.href = '/';
+            }
+          }}
+        >
           <div className="flex flex-col">
             <span className={`text-2xl font-serif font-bold tracking-tight ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
-              ANDREIA ROCHA
+              OLGA VARAJÃO
             </span>
-            <span className={`text-xs font-medium tracking-widest uppercase ${isScrolled ? 'text-gold-500' : 'text-gray-200'}`}>
-              RE/MAX Family
+            <span className={`text-xs font-medium tracking-widest uppercase ${isScrolled ? 'text-gold-600' : 'text-gray-200'}`}>
+              RE/MAX Move Limiana
             </span>
           </div>
         </div>

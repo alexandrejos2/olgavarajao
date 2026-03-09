@@ -11,7 +11,7 @@ const stats = [
   },
   {
     icon: MapPin,
-    value: 'Vila Nova de Gaia',
+    value: 'Évora',
     label: 'Especialização local',
     sub: 'conhecimento profundo do mercado',
   },
@@ -25,11 +25,11 @@ const stats = [
 
 const ProvasSocial: React.FC = () => {
   return (
-    <section className="py-20 bg-slate-900 text-white">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-20 bg-remax-blue text-white">
+      <div className="max-w-6xl mx-auto px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-widest text-gold-500 mb-12">
-            Porque trabalhar com um especialista local
+            Porquê escolher um especialista local
           </p>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

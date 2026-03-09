@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { Bed, Bath, Move, MapPin } from 'lucide-react';
+import { Bed, Bath, Move, MapPin, ArrowRight } from 'lucide-react';
 import { Property } from '../types';
 import Reveal from './Reveal';
 
@@ -12,7 +12,7 @@ const properties: Property[] = [
   {
     id: 1,
     title: "Apartamento T2 em Azurém",
-    location: "Vila Nova de Gaia",
+    location: "Évora",
     price: "Vendido",
     beds: 2,
     baths: 1,
@@ -24,7 +24,7 @@ const properties: Property[] = [
   {
     id: 2,
     title: "Moradia T3+1 em Banda",
-    location: "Vila Nova de Gaia",
+    location: "Évora",
     price: "Vendido",
     beds: 3,
     baths: 2,
@@ -36,7 +36,7 @@ const properties: Property[] = [
   {
     id: 3,
     title: "Moradia de Luxo",
-    location: "Vila Nova de Gaia",
+    location: "Évora",
     price: "Vendido",
     beds: 4,
     baths: 4,
@@ -53,11 +53,11 @@ const AUTO_PLAY_MS = 3500;
 const TRANSITION_MS = 500;
 
 const PropertyCard: React.FC<{ property: Property; isBuy: boolean }> = ({ property, isBuy }) => (
-  <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+  <div className="group bg-white overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500  flex flex-col h-full border border-gold-100/30">
     <div className="relative h-72 overflow-hidden">
-      <div className="absolute top-4 left-4 z-20">
+      <div className="absolute top-4 left-4 z-20 flex gap-2 w-full pr-8">
         {isBuy ? (
-          <span className="px-4 py-1.5 bg-amber-500/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded border border-white/20 shadow-xl">
+          <span className="px-4 py-1.5 bg-remax-blue/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded border border-white/20 shadow-xl">
             Destaque / Oportunidade
           </span>
         ) : (
@@ -71,7 +71,7 @@ const PropertyCard: React.FC<{ property: Property; isBuy: boolean }> = ({ proper
         alt={property.title}
         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out grayscale-[0.3] group-hover:grayscale-0"
       />
-      <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
+      <div className="absolute inset-0 bg-remax-blue/10 group-hover:bg-transparent transition-colors duration-500"></div>
     </div>
     <div className="p-8 flex-grow flex flex-col">
       <div className="flex items-center text-slate-400 text-xs font-semibold uppercase tracking-widest mb-3">
@@ -88,6 +88,10 @@ const PropertyCard: React.FC<{ property: Property; isBuy: boolean }> = ({ proper
           <span className="flex items-center gap-2"><Move size={16} className="text-slate-300" /> {property.area}</span>
         </div>
       </div>
+      <button className="w-full mt-6 py-4 border border-gold-500/30 flex items-center justify-center text-remax-blue font-medium text-xs tracking-widest uppercase hover:bg-gold-500 hover:text-white transition-all duration-300 group/btn">
+        Ver Detalhes
+        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+      </button>
     </div>
   </div>
 );
@@ -216,9 +220,9 @@ const MobileCarousel: React.FC<{ isBuy: boolean }> = ({ isBuy }) => {
               stopAutoPlay();
               startAutoPlay();
             }}
-            className={`transition-all duration-300 rounded-full ${index === realIndex
-                ? 'w-8 h-2 bg-gold-500'
-                : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+            className={`transition-all duration-300 ${index === realIndex
+              ? 'w-8 h-2 bg-gold-500'
+              : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
               }`}
             aria-label={`Ver imóvel ${index + 1}`}
           />
@@ -240,23 +244,34 @@ const Properties: React.FC<PropertiesProps> = ({ activeTab }) => {
   }, []);
 
   return (
-    <section id="imoveis" className="py-24 bg-white">
+    <section id="imoveis" className="py-32 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="w-full md:w-auto">
             <Reveal>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-gold-200 bg-gold-50/50">
+                <div className="w-1.5 h-1.5 bg-gold-500"></div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-gold-700">Portfólio Selecionado</span>
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif font-black text-slate-900 tracking-tight mb-4">
                 {isBuy ? 'Imóveis em Destaque' : 'Resultados Reais: Imóveis Vendidos'}
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-slate-600 text-lg max-w-2xl font-light">
                 {isBuy
-                  ? 'Encontre o imóvel ideal em Vila Nova de Gaia. Oportunidades selecionadas com qualidade, localização e valor que fazem a diferença.'
+                  ? 'Encontre o imóvel ideal. Oportunidades selecionadas com qualidade, localização e valor que fazem a diferença.'
                   : 'Alguns exemplos recentes de imóveis acompanhados, com foco em posicionamento, negociação e fecho seguro.'}
               </p>
             </Reveal>
           </div>
+          <Reveal delay={0.3}>
+            <button className="hidden md:flex items-center text-gold-600 font-semibold hover:text-gold-700 transition-colors uppercase tracking-widest text-sm">
+              Ver todos <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </Reveal>
         </div>
 
         {isMobile ? (

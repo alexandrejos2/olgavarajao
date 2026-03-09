@@ -14,7 +14,7 @@ interface Errors {
   [key: string]: string;
 }
 
-const WHATSAPP_NUMBER = '351912290463';
+const WHATSAPP_NUMBER = '351927411641';
 
 const tipologias = [
   'Moradia',
@@ -103,7 +103,7 @@ const MultiStepForm: React.FC = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      `Olá Andreia! Pedi uma análise para o meu imóvel:\n• Zona: ${formData.zona}\n• Tipo: ${formData.tipologia}\n• Estado: ${formData.estado}\n\nO meu nome é ${formData.nome}.`
+      `Olá Olga! Pedi uma análise para o meu imóvel:\n• Zona: ${formData.zona}\n• Tipo: ${formData.tipologia}\n• Estado: ${formData.estado}\n\nO meu nome é ${formData.nome}.`
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
@@ -136,7 +136,7 @@ const MultiStepForm: React.FC = () => {
                         className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${isCompleted
                           ? 'bg-gold-500 text-white'
                           : isActive
-                            ? 'bg-slate-900 text-white'
+                            ? 'bg-remax-blue text-white'
                             : 'bg-slate-100 text-slate-400'
                           }`}
                       >
@@ -240,7 +240,7 @@ const MultiStepForm: React.FC = () => {
                 <div className="mt-8">
                   <button
                     onClick={handleStep1Submit}
-                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-base transition-all duration-300 group"
+                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-remax-blue hover:bg-slate-800 text-white rounded-xl font-bold text-base transition-all duration-300 group"
                   >
                     Continuar
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -259,14 +259,14 @@ const MultiStepForm: React.FC = () => {
                 </p>
                 <div className="flex items-center gap-4 bg-gold-50 border border-gold-100 rounded-xl px-4 py-4 mb-6">
                   <img
-                    src="https://res.cloudinary.com/dxrk58emm/image/upload/v1772275053/andreia-rocha_m8jqrd.jpg?refresh=1"
-                    alt="Andreia Rocha"
+                    src="https://res.cloudinary.com/dxrk58emm/image/upload/v1772799577/olga-varajao_ywiaiw.png"
+                    alt="Olga Varajão"
                     className="w-14 h-14 rounded-full object-cover object-top flex-shrink-0 border-2 border-gold-400 shadow-md"
                   />
                   <p className="text-sm text-slate-700 leading-snug font-medium">
                     Análise realizada diretamente por{' '}
-                    <span className="font-bold text-slate-900">Andreia Rocha</span>
-                    , especialista em Vila Nova de Gaia.
+                    <span className="font-bold text-slate-900">Olga Varajão</span>
+                    , especialista no Alto Minho.
                   </p>
                 </div>
                 <div className="space-y-5">
@@ -331,8 +331,8 @@ const MultiStepForm: React.FC = () => {
                     />
                     <span className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
                       Autorizo o contacto por parte de{' '}
-                      <span className="font-semibold text-slate-700">Andreia Rocha</span>
-                      , representante da RE/MAX, para efeitos da análise solicitada, nos termos da política de privacidade.
+                      <span className="font-semibold text-slate-700">Olga Varajão</span>
+                      , representante da RE/MAX Move Limiana, para efeitos da análise solicitada, nos termos da política de privacidade.
                     </span>
                   </label>
                   {errors.privacidade && (

@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, Home } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="text-slate-300 border-t border-slate-800" style={{ backgroundColor: '#2C2C2C' }}>
+    <footer className="text-slate-300 border-t border-primary-800 bg-primary-900">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
 
@@ -12,15 +12,15 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-2 mb-6 text-white">
               <Home className="w-8 h-8" />
               <div className="flex flex-col leading-none">
-                <span className="font-serif font-bold text-xl tracking-tight">ANDREIA ROCHA</span>
-                <span className="text-[10px] font-medium tracking-[0.2em] text-slate-400">CONSULTOR IMOBILIÁRIO</span>
+                <span className="font-serif font-bold text-xl tracking-tight">OLGA VARAJÃO</span>
+                <span className="text-[10px] font-medium tracking-[0.2em] text-slate-400">CONSULTORA IMOBILIÁRIA</span>
               </div>
             </div>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/p/Andreia-Rocha-Remax-Family-100032848311944/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-all">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-all">
                 <Facebook size={18} />
               </a>
-              <a href="https://www.instagram.com/andreia.rocharemaxfamily/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-all">
+              <a href="https://instagram.com/olgavarajao" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 hover:text-white transition-all">
                 <Instagram size={18} />
               </a>
             </div>
@@ -47,8 +47,8 @@ const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-gold-400 transition-colors">Livro de Reclamações</a></li>
             </ul>
             <div className="mt-8 pt-8 border-t border-slate-800">
-              <p className="text-xs text-slate-500">© {new Date().getFullYear()} Andreia Rocha. Todos os direitos reservados.</p>
-              <p className="text-xs text-slate-600 mt-2">RE/MAX Family</p>
+              <p className="text-xs text-slate-500">© {new Date().getFullYear()} Olga Varajão. Todos os direitos reservados.</p>
+              <p className="text-xs text-slate-600 mt-2">RE/MAX Move Limiana | ovarajao@remax.pt | +351 927 411 641</p>
             </div>
           </div>
 

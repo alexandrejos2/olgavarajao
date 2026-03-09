@@ -32,11 +32,11 @@ const AvaliacaoPage: React.FC = () => {
       <footer className="py-8 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <p className="font-serif font-bold text-slate-900">ANDREIA ROCHA</p>
-            <p className="text-xs text-gold-500 font-semibold tracking-widest uppercase">RE/MAX Family · Vila Nova de Gaia</p>
+            <p className="font-serif font-bold text-slate-900">OLGA VARAJÃO</p>
+            <p className="text-xs text-gold-500 font-semibold tracking-widest uppercase">RE/MAX Move Limiana · Alto Minho</p>
           </div>
           <p className="text-sm text-slate-400">
-            &copy; {new Date().getFullYear()} Andreia Rocha. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Olga Varajão. Todos os direitos reservados.
           </p>
         </div>
       </footer>

@@ -1,51 +1,96 @@
-
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Target, TrendingUp, Sparkles } from 'lucide-react';
 import Reveal from './Reveal';
 
 const WhyWorkWithMe: React.FC = () => {
+  const benefits = [
+    {
+      icon: <Target className="w-6 h-6 text-gold-600" />,
+      title: "Estratégia Focada",
+      desc: "Sem dispersão. Todo o esforço concentrado no resultado que deseja atingir."
+    },
+    {
+      icon: <ShieldCheck className="w-6 h-6 text-gold-600" />,
+      title: "Único Interlocutor",
+      desc: "Comunicação centralizada, defendendo rigorosamente os seus interesses."
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6 text-gold-600" />,
+      title: "Posicionamento",
+      desc: "Sem mensagens contraditórias no mercado, preservando o valor do imóvel."
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-gold-600" />,
+      title: "Compromisso",
+      desc: "Dedicação plena e responsabilidade absoluta sobre todo o processo de venda."
+    }
+  ];
+
   return (
-    <section id="porque-eu" className="py-24 text-white relative overflow-hidden" style={{ backgroundColor: '#B89B9B' }}>
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-widest text-gold-500 mb-6">
-            A forma como trabalho com proprietários
-          </p>
-        </Reveal>
+    <section id="porque-eu" className="py-32 relative overflow-hidden bg-white">
+      {/* Decorative Background */}
+      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gold-50/20 border-l border-gold-100/30 pointer-events-none"></div>
 
-        <Reveal delay={0.1}>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight tracking-tight">
-            Compromisso total através de exclusividade.
-          </h2>
-        </Reveal>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        <Reveal delay={0.15}>
-          <div className="w-16 h-1 bg-gold-500 mb-10"></div>
-        </Reveal>
+          {/* Left Side */}
+          <div>
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-gold-200 bg-gold-50/50">
+                <div className="w-1.5 h-1.5 bg-gold-500"></div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-gold-700">
+                  O Meu Método
+                </span>
+              </div>
+            </Reveal>
 
-        <Reveal delay={0.2}>
-          <p className="text-xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl">
-            Trabalho em regime de exclusividade porque só assim é possível definir uma estratégia clara, manter coerência no posicionamento e assumir responsabilidade total pelo resultado.
-          </p>
-        </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-slate-900 mb-6 leading-tight tracking-tight">
+                O poder da <span className="text-gold-500 block italic font-light mt-2">Exclusividade.</span>
+              </h2>
+            </Reveal>
 
-        <Reveal delay={0.3}>
-          <div className="flex flex-col gap-4 mb-16 border-l-2 border-gold-500 pl-8">
-            <p className="text-lg font-semibold text-white">Sem dispersão.</p>
-            <p className="text-lg font-semibold text-white">Sem mensagens contraditórias no mercado.</p>
-            <p className="text-lg font-semibold text-gold-400">Com foco.</p>
+            <Reveal delay={0.2}>
+              <div className="w-12 h-1 bg-gold-500 mb-8"></div>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <p className="text-xl text-slate-600 font-light leading-relaxed mb-10 max-w-xl">
+                Trabalho neste regime porque é a única forma de garantir uma estratégia clara, definir o posicionamento correto no mercado e assumir total responsabilidade pelos seus resultados.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.4}>
+              <a
+                href="#contactos"
+                className="inline-flex items-center justify-center px-10 py-5 bg-remax-blue text-white rounded-none font-medium text-sm tracking-[0.2em] uppercase hover:bg-gold-600 transition-all duration-300 shadow-xl shadow-remax-blue/10 group mt-4"
+              >
+                Falar comigo
+                <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Reveal>
           </div>
-        </Reveal>
 
-        <Reveal delay={0.4} width="100%">
-          <a
-            href="#contactos"
-            className="inline-flex items-center px-10 py-4 bg-gold-500 text-white rounded-lg font-bold text-lg hover:bg-gold-600 transition-all duration-300 shadow-xl shadow-gold-600/40 group"
-          >
-            Agendar conversa agora
-            <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </Reveal>
+          {/* Right Side - Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+            <div className="absolute -inset-4 bg-gold-50/30 rounded-3xl -z-10 blur-2xl"></div>
+            {benefits.map((benefit, idx) => (
+              <Reveal key={idx} delay={0.2 + (idx * 0.1)}>
+                <div className="flex flex-col p-8 border border-gold-100/50 bg-white hover:bg-gold-50/20 transition-all duration-500 hover:shadow-xl hover:shadow-gold-900/5 hover:-translate-y-1 group h-full">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-none bg-gold-50 group-hover:bg-gold-100 transition-colors text-gold-600 mb-6">
+                    {benefit.icon}
+                  </div>
+                  <div className="flex-grow flex flex-col">
+                    <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{benefit.title}</h3>
+                    <p className="text-slate-500 font-light text-sm leading-relaxed">{benefit.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   );

@@ -54,13 +54,12 @@ const Hero: React.FC = () => {
       {/* Right Image Half */}
       <div className="w-full lg:w-1/2 min-h-[50vh] lg:min-h-screen relative overflow-hidden">
         {/* Subtle gradient overlay to blend with the dark blue section on desktop */}
-        <div className="absolute inset-0 bg-gradient-to-r from-remax-blue via-remax-blue/20 to-transparent z-10 w-1/3 hidden lg:block pointer-events-none"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-remax-blue via-remax-blue/40 to-transparent z-10 h-1/3 bottom-0 lg:hidden pointer-events-none"></div>
+        <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-remax-blue via-remax-blue/20 to-transparent z-10 w-full hidden lg:block pointer-events-none h-1/3"></div>
         <div className="absolute inset-0">
           <img
             src="https://res.cloudinary.com/dxrk58emm/image/upload/v1772799577/olga-varajao_ywiaiw.png"
             alt="Olga Varajão - Consultora Imobiliária"
-            className="w-full h-full object-cover object-[center_top] lg:object-[20%_top] animate-[scale_40s_ease-in-out_infinite_alternate]"
+            className="w-full h-full object-cover object-[center_15%] lg:object-[20%_top] animate-[scale_40s_ease-in-out_infinite_alternate]"
             style={{ animationDuration: '40s' }}
           />
           {/* Subtle gradient to merge image with the dark side on desktop */}

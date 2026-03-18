@@ -166,7 +166,7 @@ const Services: React.FC<ServicesProps> = ({ activeTab, setActiveTab }) => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Reveal key={`${activeTab}-${service.id}`} delay={index * 0.1} width="100%">
+              <Reveal key={`${activeTab}-${service.id}`} delay={index * 0.1} width="100%" className="h-full">
                 <div
                   className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-slate-100 group h-full flex flex-col"
                 >

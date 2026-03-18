@@ -59,7 +59,7 @@ export const Reveal: React.FC<RevealProps> = ({
     <div 
       ref={ref} 
       style={{ width }} 
-      className={className}
+      className={`${className} ${className.includes('h-full') ? 'h-full' : ''}`}
     >
       <div
         style={transitionStyle}
@@ -67,11 +67,14 @@ export const Reveal: React.FC<RevealProps> = ({
           isVisible 
             ? 'opacity-100 translate-y-0 blur-0' 
             : `opacity-0 blur-[2px]` 
-        } ${!isVisible ? `translate-y-[${yOffset}px]` : ''}`}
+        } ${!isVisible ? `translate-y-[${yOffset}px]` : ''} ${className.includes('h-full') ? 'h-full' : ''}`}
       >
         {/* We use inline style for Y translation when hidden to allow dynamic prop, 
             but Tailwind classes for the rest to ensure clean overriding if needed */}
-        <div style={{ transform: isVisible ? 'none' : `translateY(${yOffset}px)` }}>
+        <div 
+          style={{ transform: isVisible ? 'none' : `translateY(${yOffset}px)` }}
+          className={className.includes('h-full') ? 'h-full' : ''}
+        >
           {children}
         </div>
       </div>

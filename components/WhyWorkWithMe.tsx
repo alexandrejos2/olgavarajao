@@ -76,7 +76,7 @@ const WhyWorkWithMe: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
             <div className="absolute -inset-4 bg-gold-50/30 rounded-3xl -z-10 blur-2xl"></div>
             {benefits.map((benefit, idx) => (
-              <Reveal key={idx} delay={0.2 + (idx * 0.1)}>
+              <Reveal key={idx} delay={0.2 + (idx * 0.1)} className="h-full">
                 <div className="flex flex-col p-8 border border-gold-100/50 bg-white hover:bg-gold-50/20 transition-all duration-500 hover:shadow-xl hover:shadow-gold-900/5 hover:-translate-y-1 group h-full">
                   <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-none bg-gold-50 group-hover:bg-gold-100 transition-colors text-gold-600 mb-6">
                     {benefit.icon}

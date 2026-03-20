@@ -56,10 +56,12 @@ const PropertyCard: React.FC<{ property: PropertyRow; isBuy: boolean }> = ({ pro
           <span className="flex items-center gap-2"><Move size={16} className="text-slate-300" /> {property.area}</span>
         </div>
       </div>
-      <button className="w-full mt-6 py-4 border border-gold-500/30 flex items-center justify-center text-remax-blue font-medium text-xs tracking-widest uppercase hover:bg-gold-500 hover:text-white transition-all duration-300 group/btn">
-        Ver Detalhes
-        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-      </button>
+      {isBuy && (
+        <button className="w-full mt-6 py-4 border border-gold-500/30 flex items-center justify-center text-remax-blue font-medium text-xs tracking-widest uppercase hover:bg-gold-500 hover:text-white transition-all duration-300 group/btn">
+          Ver Detalhes
+          <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+        </button>
+      )}
     </div>
   </div>
 );

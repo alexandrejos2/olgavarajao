@@ -11,13 +11,13 @@ interface PropertiesProps {
 const properties: Property[] = [
   {
     id: 1,
-    title: "Apartamento T2 em Azurém",
-    location: "Évora",
-    price: "Vendido",
-    beds: 2,
+    title: "Moradia Centenária em Pedra",
+    location: "Ponte de Lima, Viana do Castelo",
+    price: "435.000 €",
+    beds: 3,
     baths: 1,
-    area: "126 m²",
-    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1770808679/337d8182-ef57-429f-86c8-da71d69c9e75_ojdarn.jpg",
+    area: "2.840 m²",
+    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774016005/moradia-centen%C3%A1ria_kk3fei.jpg",
     isFeatured: true,
     status: 'Vendido'
   },

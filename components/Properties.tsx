@@ -23,13 +23,13 @@ const properties: Property[] = [
   },
   {
     id: 2,
-    title: "Moradia T3+1 em Banda",
-    location: "Évora",
-    price: "Vendido",
+    title: "Moradia T3 Moderna em Banda",
+    location: "Arca, Ponte de Lima",
+    price: "414.000 €",
     beds: 3,
     baths: 2,
-    area: "229 m²",
-    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1770808769/892b2f06-bfd0-4af1-bc89-50871de0e287_bgldxp.jpg",
+    area: "371 m²",
+    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774015525/moradia-414_zi1ykn.jpg",
     isFeatured: true,
     status: 'Vendido'
   },

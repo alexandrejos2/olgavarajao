@@ -32,6 +32,16 @@ const awards = [
     id: 6,
     name: "Golden Club",
     image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1765469831/golden-club_jyxwcq.png"
+  },
+  {
+    id: 7,
+    name: "Balão de Ouro",
+    image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774018539/balao-ouro_mo9svm.png"
+  },
+  {
+    id: 8,
+    name: "Balão Diamante",
+    image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774019057/balao-diamante_-_Editado_rbkb3j.png"
   }
 ];
 

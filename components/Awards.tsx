@@ -25,13 +25,13 @@ const awards = [
   },
   {
     id: 5,
-    name: "Balão de Prata",
-    image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1764936479/balao-prata-pb_msdjgv.png"
+    name: "Golden Club",
+    image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1765469831/golden-club_jyxwcq.png"
   },
   {
     id: 6,
-    name: "Golden Club",
-    image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1765469831/golden-club_jyxwcq.png"
+    name: "Balão de Prata",
+    image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1764936479/balao-prata-pb_msdjgv.png"
   },
   {
     id: 7,

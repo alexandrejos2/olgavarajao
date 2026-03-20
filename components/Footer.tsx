@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Home } from 'lucide-react';
+import { Facebook, Instagram, Hop as Home } from 'lucide-react';
 import { useSiteContent } from '../lib/hooks';
 
 const DEFAULTS: Record<string, string> = {

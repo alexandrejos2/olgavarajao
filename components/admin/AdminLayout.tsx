@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../lib/AuthContext';
-import {
-  LayoutDashboard, Image, Award, Briefcase, Home, MessageSquare,
-  HelpCircle, Phone, FileText, LogOut, Menu, X, ChevronRight
-} from 'lucide-react';
+import { LayoutDashboard, Image, Award, Briefcase, Hop as Home, MessageSquare, Circle as HelpCircle, Phone, FileText, LogOut, Menu, X, ChevronRight } from 'lucide-react';
 
 const NAV_ITEMS = [
   { to: '/admin', label: 'Dashboard', icon: LayoutDashboard, end: true },

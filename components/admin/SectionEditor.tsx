@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Save, Check, Loader2 } from 'lucide-react';
+import { Save, Check, Loader as Loader2 } from 'lucide-react';
 
 interface FieldConfig {
   key: string;

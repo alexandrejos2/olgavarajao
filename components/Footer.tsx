@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Hop as Home } from 'lucide-react';
 import { useSiteContent } from '../lib/hooks';
 
@@ -58,7 +59,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-gold-400 transition-colors">Livro de Reclamações</a></li>
             </ul>
             <div className="mt-8 pt-8 border-t border-slate-800">
-              <p className="text-xs text-slate-500">&copy; {new Date().getFullYear()} {c.brand_name}. Todos os direitos reservados.</p>
+              <p className="text-xs text-slate-500">&copy; {new Date().getFullYear()} {c.brand_name}. Todos os direitos reservados. <Link to="/admin/login" className="text-slate-600 hover:text-slate-400 transition-colors">*</Link></p>
               <p className="text-xs text-slate-600 mt-2">{c.office} | {c.email} | {c.phone}</p>
             </div>
           </div>

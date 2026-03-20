@@ -1,18 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Camera,
-  ClipboardCheck,
-  Handshake,
-  FileText,
-  UserCheck,
-  Search,
-  BarChart3,
-  CreditCard,
-  CheckCircle,
-  ArrowRight,
-  Circle
-} from 'lucide-react';
+import { Camera, ClipboardCheck, Handshake, FileText, UserCheck, Search, ChartBar as BarChart3, CreditCard, CircleCheck as CheckCircle, ArrowRight, Circle } from 'lucide-react';
 import Reveal from './Reveal';
 import { useSiteContent, useServices as useServicesData, ServiceRow } from '../lib/hooks';
 

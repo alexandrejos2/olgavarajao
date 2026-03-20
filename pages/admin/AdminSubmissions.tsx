@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Eye, CheckCircle, X } from 'lucide-react';
+import { Eye, CircleCheck as CheckCircle, X } from 'lucide-react';
 
 interface Submission {
   id: string;

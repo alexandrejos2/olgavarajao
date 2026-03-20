@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ArrowRight, CheckCircle, MessageCircle, ChevronDown } from 'lucide-react';
+import { ArrowRight, CircleCheck as CheckCircle, MessageCircle, ChevronDown } from 'lucide-react';
 import { useSiteContent } from '../../lib/hooks';
 import { supabase } from '../../lib/supabase';
 

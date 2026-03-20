@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, TrendingUp, Home, Target } from 'lucide-react';
+import { MapPin, TrendingUp, Hop as Home, Target } from 'lucide-react';
 import Reveal from '../Reveal';
 import { useSiteContent } from '../../lib/hooks';
 

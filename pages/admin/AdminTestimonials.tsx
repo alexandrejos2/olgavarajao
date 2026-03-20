@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Plus, Trash2, Save, Loader2, Check } from 'lucide-react';
+import { Plus, Trash2, Save, Loader as Loader2, Check } from 'lucide-react';
 
 interface Testimonial {
   id?: string;

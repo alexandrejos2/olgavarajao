@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Image, FileText, Award, Briefcase, Home, MessageSquare, HelpCircle, Phone } from 'lucide-react';
+import { Image, FileText, Award, Briefcase, Hop as Home, MessageSquare, Circle as HelpCircle, Phone } from 'lucide-react';
 
 const SECTIONS = [
   { to: '/admin/hero', label: 'Hero', icon: Image, desc: 'Titulo, subtitulo e imagem principal' },

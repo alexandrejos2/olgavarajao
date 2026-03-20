@@ -1,15 +1,30 @@
 import React from 'react';
 import { MapPin, TrendingUp, Home, Target } from 'lucide-react';
 import Reveal from '../Reveal';
+import { useSiteContent } from '../../lib/hooks';
 
-const bullets = [
-  { icon: MapPin, label: 'Localização específica' },
-  { icon: TrendingUp, label: 'Procura ativa atual' },
-  { icon: Home, label: 'Estado real do imóvel' },
-  { icon: Target, label: 'Estratégia de posicionamento' },
-];
+const ICONS = [MapPin, TrendingUp, Home, Target];
+
+const DEFAULTS: Record<string, string> = {
+  heading: 'Não é uma estimativa automática.',
+  paragraph_1: 'Ferramentas online apresentam valores genéricos com base em médias.',
+  paragraph_2: 'O valor real de um imóvel depende da localização específica, da procura ativa atual, do estado do imóvel e da estratégia de posicionamento.',
+  paragraph_3: 'A análise é personalizada e baseada em dados reais do mercado local.',
+  bullet_1: 'Localização específica',
+  bullet_2: 'Procura ativa atual',
+  bullet_3: 'Estado real do imóvel',
+  bullet_4: 'Estratégia de posicionamento',
+};
 
 const DiferenciacaoBlock: React.FC = () => {
+  const raw = useSiteContent('avaliacao_diferenciacao');
+  const c = { ...DEFAULTS, ...raw };
+
+  const bullets = [1, 2, 3, 4].map((i) => ({
+    icon: ICONS[i - 1],
+    label: c[`bullet_${i}`],
+  }));
+
   return (
     <section className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">
@@ -20,22 +35,22 @@ const DiferenciacaoBlock: React.FC = () => {
             </Reveal>
             <Reveal delay={0.2}>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6 leading-tight">
-                Não é uma estimativa automática.
+                {c.heading}
               </h2>
             </Reveal>
             <Reveal delay={0.3}>
               <p className="text-slate-600 leading-relaxed mb-4">
-                Ferramentas online apresentam valores genéricos com base em médias.
+                {c.paragraph_1}
               </p>
             </Reveal>
             <Reveal delay={0.35}>
               <p className="text-slate-600 leading-relaxed mb-4">
-                O valor real de um imóvel depende da localização específica, da procura ativa atual, do estado do imóvel e da estratégia de posicionamento.
+                {c.paragraph_2}
               </p>
             </Reveal>
             <Reveal delay={0.4}>
               <p className="text-slate-700 font-semibold leading-relaxed">
-                A análise é personalizada e baseada em dados reais do mercado local.
+                {c.paragraph_3}
               </p>
             </Reveal>
           </div>

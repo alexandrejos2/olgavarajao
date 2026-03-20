@@ -1,58 +1,26 @@
-
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Bed, Bath, Move, MapPin, ArrowRight } from 'lucide-react';
-import { Property } from '../types';
 import Reveal from './Reveal';
+import { useSiteContent, useProperties as usePropertiesData, PropertyRow } from '../lib/hooks';
 
 interface PropertiesProps {
   activeTab: 'sell' | 'buy';
 }
 
-const properties: Property[] = [
-  {
-    id: 1,
-    title: "Moradia Centenária em Pedra",
-    location: "Ponte de Lima, Viana do Castelo",
-    price: "435.000 €",
-    beds: 3,
-    baths: 1,
-    area: "2.840 m²",
-    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774016005/moradia-centen%C3%A1ria_kk3fei.jpg",
-    isFeatured: true,
-    status: 'Vendido'
-  },
-  {
-    id: 2,
-    title: "Moradia T3 Moderna em Banda",
-    location: "Arca, Ponte de Lima",
-    price: "414.000 €",
-    beds: 3,
-    baths: 2,
-    area: "371 m²",
-    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774015525/moradia-414_zi1ykn.jpg",
-    isFeatured: true,
-    status: 'Vendido'
-  },
-  {
-    id: 3,
-    title: "Apartamento T2 em Feitosa",
-    location: "Ponte de Lima, Viana do Castelo",
-    price: "195.000 €",
-    beds: 2,
-    baths: 1,
-    area: "90 m²",
-    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774016051/apartamento_r055r6.jpg",
-    isFeatured: false,
-    status: 'Vendido'
-  }
-];
+const DEFAULTS: Record<string, string> = {
+  badge: 'Portfólio Selecionado',
+  sell_title: 'Resultados Reais: Imóveis Vendidos',
+  sell_subtitle: 'Alguns exemplos recentes de imóveis acompanhados, com foco em posicionamento, negociação e fecho seguro.',
+  buy_title: 'Imóveis em Destaque',
+  buy_subtitle: 'Encontre o imóvel ideal. Oportunidades selecionadas com qualidade, localização e valor que fazem a diferença.',
+};
 
 const CARD_WIDTH_VW = 85;
 const GAP_PX = 16;
 const AUTO_PLAY_MS = 3500;
 const TRANSITION_MS = 500;
 
-const PropertyCard: React.FC<{ property: Property; isBuy: boolean }> = ({ property, isBuy }) => (
+const PropertyCard: React.FC<{ property: PropertyRow; isBuy: boolean }> = ({ property, isBuy }) => (
   <div className="group bg-white overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500  flex flex-col h-full border border-gold-100/30">
     <div className="relative h-72 overflow-hidden">
       <div className="absolute top-4 left-4 z-20 flex gap-2 w-full pr-8">
@@ -62,12 +30,12 @@ const PropertyCard: React.FC<{ property: Property; isBuy: boolean }> = ({ proper
           </span>
         ) : (
           <span className="px-4 py-1.5 bg-slate-900/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded border border-white/20 shadow-xl">
-            Vendido
+            {property.status}
           </span>
         )}
       </div>
       <img
-        src={property.imageUrl}
+        src={property.image_url}
         alt={property.title}
         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out grayscale-[0.3] group-hover:grayscale-0"
       />
@@ -96,7 +64,7 @@ const PropertyCard: React.FC<{ property: Property; isBuy: boolean }> = ({ proper
   </div>
 );
 
-const MobileCarousel: React.FC<{ isBuy: boolean }> = ({ isBuy }) => {
+const MobileCarousel: React.FC<{ properties: PropertyRow[]; isBuy: boolean }> = ({ properties, isBuy }) => {
   const total = properties.length;
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -105,7 +73,7 @@ const MobileCarousel: React.FC<{ isBuy: boolean }> = ({ isBuy }) => {
   const touchStartRef = useRef(0);
   const touchDeltaRef = useRef(0);
 
-  const extendedItems = [properties[total - 1], ...properties, properties[0]];
+  const extendedItems = total > 0 ? [properties[total - 1], ...properties, properties[0]] : [];
 
   const getOffset = useCallback((index: number) => {
     const cardPx = (CARD_WIDTH_VW / 100) * window.innerWidth;
@@ -161,9 +129,9 @@ const MobileCarousel: React.FC<{ isBuy: boolean }> = ({ isBuy }) => {
   }, []);
 
   useEffect(() => {
-    startAutoPlay();
+    if (total > 0) startAutoPlay();
     return stopAutoPlay;
-  }, [startAutoPlay, stopAutoPlay]);
+  }, [startAutoPlay, stopAutoPlay, total]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     stopAutoPlay();
@@ -187,7 +155,9 @@ const MobileCarousel: React.FC<{ isBuy: boolean }> = ({ isBuy }) => {
     startAutoPlay();
   };
 
-  const realIndex = ((current % total) + total) % total;
+  const realIndex = total > 0 ? ((current % total) + total) % total : 0;
+
+  if (total === 0) return null;
 
   return (
     <div className="relative overflow-hidden -mx-6">
@@ -235,6 +205,9 @@ const MobileCarousel: React.FC<{ isBuy: boolean }> = ({ isBuy }) => {
 const Properties: React.FC<PropertiesProps> = ({ activeTab }) => {
   const isBuy = activeTab === 'buy';
   const [isMobile, setIsMobile] = useState(false);
+  const raw = useSiteContent('properties');
+  const c = { ...DEFAULTS, ...raw };
+  const { properties } = usePropertiesData();
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -251,19 +224,17 @@ const Properties: React.FC<PropertiesProps> = ({ activeTab }) => {
             <Reveal>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-gold-200 bg-gold-50/50">
                 <div className="w-1.5 h-1.5 bg-gold-500"></div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-gold-700">Portfólio Selecionado</span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-gold-700">{c.badge}</span>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif font-black text-slate-900 tracking-tight mb-4">
-                {isBuy ? 'Imóveis em Destaque' : 'Resultados Reais: Imóveis Vendidos'}
+                {isBuy ? c.buy_title : c.sell_title}
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-slate-600 text-lg max-w-2xl font-light">
-                {isBuy
-                  ? 'Encontre o imóvel ideal. Oportunidades selecionadas com qualidade, localização e valor que fazem a diferença.'
-                  : 'Alguns exemplos recentes de imóveis acompanhados, com foco em posicionamento, negociação e fecho seguro.'}
+                {isBuy ? c.buy_subtitle : c.sell_subtitle}
               </p>
             </Reveal>
           </div>
@@ -275,7 +246,7 @@ const Properties: React.FC<PropertiesProps> = ({ activeTab }) => {
         </div>
 
         {isMobile ? (
-          <MobileCarousel isBuy={isBuy} />
+          <MobileCarousel properties={properties} isBuy={isBuy} />
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {properties.map((property, index) => (

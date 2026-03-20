@@ -1,35 +1,40 @@
 import React from 'react';
 import { Star, MapPin, ShieldCheck } from 'lucide-react';
 import Reveal from '../Reveal';
+import { useSiteContent } from '../../lib/hooks';
 
-const stats = [
-  {
-    icon: ShieldCheck,
-    value: '100+',
-    label: 'Imóveis acompanhados',
-    sub: 'com processo estruturado',
-  },
-  {
-    icon: MapPin,
-    value: 'Évora',
-    label: 'Especialização local',
-    sub: 'conhecimento profundo do mercado',
-  },
-  {
-    icon: Star,
-    value: '100%',
-    label: 'Processo transparente',
-    sub: 'comunicação clara em cada etapa',
-  },
-];
+const ICONS = [ShieldCheck, MapPin, Star];
+
+const DEFAULTS: Record<string, string> = {
+  section_label: 'Porquê escolher um especialista local',
+  stat_1_value: '100+',
+  stat_1_label: 'Imóveis acompanhados',
+  stat_1_sub: 'com processo estruturado',
+  stat_2_value: 'Évora',
+  stat_2_label: 'Especialização local',
+  stat_2_sub: 'conhecimento profundo do mercado',
+  stat_3_value: '100%',
+  stat_3_label: 'Processo transparente',
+  stat_3_sub: 'comunicação clara em cada etapa',
+};
 
 const ProvasSocial: React.FC = () => {
+  const raw = useSiteContent('avaliacao_provas');
+  const c = { ...DEFAULTS, ...raw };
+
+  const stats = [1, 2, 3].map((i) => ({
+    icon: ICONS[i - 1],
+    value: c[`stat_${i}_value`],
+    label: c[`stat_${i}_label`],
+    sub: c[`stat_${i}_sub`],
+  }));
+
   return (
     <section className="py-20 bg-remax-blue text-white">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
           <p className="text-center text-sm font-semibold uppercase tracking-widest text-gold-500 mb-12">
-            Porquê escolher um especialista local
+            {c.section_label}
           </p>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

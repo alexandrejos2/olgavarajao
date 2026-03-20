@@ -1,34 +1,20 @@
-
 import React from 'react';
 import { Quote } from 'lucide-react';
-import { Testimonial } from '../types';
 import Reveal from './Reveal';
+import { useSiteContent, useTestimonials as useTestimonialsData } from '../lib/hooks';
 
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    text: "O nosso muito obrigado, por todo o acompanhamento... Foi um longo caminho até à escritura, mas que a Olga empenhou em levar a um final feliz. Esteve sempre disponível... recomendo vivamente.",
-    author: "Família Silva",
-    role: "Proprietários"
-  },
-  {
-    id: 2,
-    text: "A Olga continuou a ser uma excelente profissional, sempre disponível para nos ajudar a esclarecer as nossas dúvidas... recomendaremos a Olga Varajão e a Remax a familiares, amigos e conhecidos.",
-    author: "Família Antunes",
-    role: "Vendedores"
-  },
-  {
-    id: 3,
-    text: "Agradecemos todo o profissionalismo e dedicação! Acompanhou-nos durante todo o tempo em que a propriedade esteve a venda... no futuro se tivermos de comprar ou vender será a D. Olga que iremos contactar.",
-    author: "Família Cruz",
-    role: "Vendedores"
-  }
-];
+const DEFAULTS: Record<string, string> = {
+  badge: 'Experiências Reais',
+  section_title: 'O que dizem os clientes',
+};
 
 const Testimonials: React.FC = () => {
+  const raw = useSiteContent('testimonials');
+  const c = { ...DEFAULTS, ...raw };
+  const { testimonials } = useTestimonialsData();
+
   return (
     <section className="py-32 bg-remax-blue text-white relative overflow-hidden">
-      {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gold-500 blur-3xl"></div>
         <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-slate-700 blur-3xl"></div>
@@ -40,12 +26,12 @@ const Testimonials: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-gold-500/30 bg-gold-500/10">
               <div className="w-1.5 h-1.5 bg-gold-400"></div>
               <span className="text-xs font-semibold tracking-widest uppercase text-gold-300">
-                Experiências Reais
+                {c.badge}
               </span>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif font-black mb-4 tracking-tight">O que dizem os clientes</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-5xl font-serif font-black mb-4 tracking-tight">{c.section_title}</h2>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="w-16 h-1 bg-gold-500 rounded-none mt-6"></div>
@@ -56,10 +42,10 @@ const Testimonials: React.FC = () => {
           {testimonials.map((t, index) => (
             <Reveal key={t.id} delay={index * 0.15} width="100%">
               <div className="bg-remax-blue/50 backdrop-blur-sm rounded-none border border-gold-500/20 relative hover:border-gold-500/50 transition-colors duration-500 h-full overflow-hidden flex flex-col p-2">
-                {t.avatar && (
+                {t.avatar_url && (
                   <div className="relative w-full h-72 flex-shrink-0">
                     <img
-                      src={t.avatar}
+                      src={t.avatar_url}
                       alt={t.author}
                       className="w-full h-full object-cover object-[center_15%]"
                     />

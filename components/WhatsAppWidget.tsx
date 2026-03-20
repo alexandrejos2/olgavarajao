@@ -1,15 +1,22 @@
-
 import React, { useState } from 'react';
 import { X, MessageCircle } from 'lucide-react';
+import { useSiteContent } from '../lib/hooks';
 
-const WHATSAPP_NUMBER = '351965006443';
-const WHATSAPP_MESSAGE = 'Olá! Gostaria de saber mais informações sobre os seus serviços imobiliários.';
+const DEFAULTS: Record<string, string> = {
+  phone_number: '351965006443',
+  greeting_message: 'Olá! Gostaria de saber mais informações sobre os seus serviços imobiliários.',
+  widget_title: 'Fale comigo',
+  widget_subtitle: 'Normalmente respondo em minutos',
+  widget_body: 'Olá! Estou disponível para responder às suas questões sobre compra, venda ou avaliação de imóveis.',
+};
 
 const WhatsAppWidget: React.FC = () => {
+  const raw = useSiteContent('whatsapp_widget');
+  const c = { ...DEFAULTS, ...raw };
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+    const url = `https://wa.me/${c.phone_number}?text=${encodeURIComponent(c.greeting_message)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -23,8 +30,8 @@ const WhatsAppWidget: React.FC = () => {
                 <MessageCircle size={20} className="text-white" />
               </div>
               <div>
-                <p className="text-white font-semibold text-sm leading-tight">Fale comigo</p>
-                <p className="text-white/80 text-xs">Normalmente respondo em minutos</p>
+                <p className="text-white font-semibold text-sm leading-tight">{c.widget_title}</p>
+                <p className="text-white/80 text-xs">{c.widget_subtitle}</p>
               </div>
             </div>
             <button
@@ -37,7 +44,7 @@ const WhatsAppWidget: React.FC = () => {
           </div>
           <div className="p-5">
             <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-              Olá! Estou disponível para responder às suas questões sobre compra, venda ou avaliação de imóveis.
+              {c.widget_body}
             </p>
             <button
               onClick={handleOpen}

@@ -1,5 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { ArrowRight, CheckCircle, MessageCircle, ChevronDown } from 'lucide-react';
+import { useSiteContent } from '../../lib/hooks';
+import { supabase } from '../../lib/supabase';
 
 interface FormData {
   zona: string;
@@ -13,8 +15,6 @@ interface FormData {
 interface Errors {
   [key: string]: string;
 }
-
-const WHATSAPP_NUMBER = '351927411641';
 
 const tipologias = [
   'Moradia',
@@ -37,6 +37,8 @@ const estadosImovel = [
 const steps = ['Imóvel', 'Contacto', 'Avaliação'];
 
 const MultiStepForm: React.FC = () => {
+  const raw = useSiteContent('avaliacao_form');
+  const WHATSAPP_NUMBER = raw.whatsapp_number || '351927411641';
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [animating, setAnimating] = useState(false);
   const [slideDir, setSlideDir] = useState<'left' | 'right'>('left');
@@ -97,8 +99,13 @@ const MultiStepForm: React.FC = () => {
     if (validateStep1()) goToStep(2, 'left');
   };
 
-  const handleStep2Submit = () => {
-    if (validateStep2()) goToStep(3, 'left');
+  const handleStep2Submit = async () => {
+    if (!validateStep2()) return;
+    await supabase.from('form_submissions').insert({
+      type: 'avaliacao',
+      data: formData,
+    });
+    goToStep(3, 'left');
   };
 
   const handleWhatsApp = () => {

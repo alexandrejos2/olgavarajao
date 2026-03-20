@@ -1,30 +1,11 @@
-
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Reveal from './Reveal';
+import { useSiteContent, useFAQs } from '../lib/hooks';
 
-const faqs = [
-  {
-    question: "Quanto tempo demora vender um imóvel?",
-    answer: `O tempo depende diretamente do posicionamento inicial.\n\nPreço estratégico correto e comunicação coerente reduzem significativamente o tempo médio de venda.\n\nO objetivo não é vender depressa.\nÉ vender no ponto certo entre tempo e valor.`
-  },
-  {
-    question: "Porque trabalha apenas em regime de exclusividade?",
-    answer: `Porque resultados consistentes exigem controlo total da estratégia.\n\nQuando um imóvel é promovido por vários agentes, a comunicação fragmenta-se, o posicionamento perde força e o valor começa a ser negociado para baixo.\n\nA exclusividade permite definir uma estratégia clara, investir com segurança e assumir responsabilidade total pelo resultado.`
-  },
-  {
-    question: "Fico \"preso\" a um contrato?",
-    answer: `Não se trata de ficar preso.\nTrata-se de criar compromisso mútuo para que a estratégia tenha tempo e foco para funcionar.\n\nSem compromisso, não há estrutura.\nSem estrutura, não há previsibilidade no resultado.\n\nO contrato define regras claras desde o início, com total transparência.`
-  },
-  {
-    question: "Porque devo pagar comissão se posso vender sozinho?",
-    answer: `Vender sozinho é possível.\n\nMas vender bem exige:\n\n• Posicionamento estratégico\n• Filtragem de compradores\n• Negociação estruturada\n• Proteção jurídica até à escritura\n\nA comissão não remunera apenas divulgação.\nRemunera estratégia, estrutura e responsabilidade assumida sobre o seu património.`
-  },
-  {
-    question: "A comissão é negociável?",
-    answer: `A comissão é definida com base no nível de responsabilidade e investimento envolvidos no processo.\n\nO foco não é ser o mais barato do mercado.\nÉ garantir que a estratégia implementada protege e maximiza o valor do imóvel.`
-  }
-];
+const DEFAULTS: Record<string, string> = {
+  section_title: 'Perguntas frequentes',
+};
 
 const FAQItem: React.FC<{ question: string; answer: string; index: number }> = ({ question, answer, index }) => {
   const [open, setOpen] = useState(false);
@@ -66,6 +47,10 @@ const FAQItem: React.FC<{ question: string; answer: string; index: number }> = (
 };
 
 const FAQ: React.FC = () => {
+  const raw = useSiteContent('faq');
+  const c = { ...DEFAULTS, ...raw };
+  const { faqs } = useFAQs();
+
   return (
     <section className="py-24 bg-slate-50 text-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden opacity-[0.03] pointer-events-none">
@@ -77,7 +62,7 @@ const FAQ: React.FC = () => {
         <div className="mb-16">
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 tracking-tight">
-              Perguntas frequentes
+              {c.section_title}
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -87,7 +72,7 @@ const FAQ: React.FC = () => {
 
         <div>
           {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} index={index} />
+            <FAQItem key={faq.id} question={faq.question} answer={faq.answer} index={index} />
           ))}
         </div>
       </div>

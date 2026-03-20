@@ -35,13 +35,13 @@ const properties: Property[] = [
   },
   {
     id: 3,
-    title: "Moradia de Luxo",
-    location: "Évora",
-    price: "Vendido",
-    beds: 4,
-    baths: 4,
-    area: "450 m²",
-    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1770808770/379d1e84-f49f-4e5d-bc1c-96fc22bc4f9e_cqxchg.jpg",
+    title: "Apartamento T2 em Feitosa",
+    location: "Ponte de Lima, Viana do Castelo",
+    price: "195.000 €",
+    beds: 2,
+    baths: 1,
+    area: "90 m²",
+    imageUrl: "https://res.cloudinary.com/dxrk58emm/image/upload/v1774016051/apartamento_r055r6.jpg",
     isFeatured: false,
     status: 'Vendido'
   }

@@ -20,6 +20,11 @@ const awards = [
   },
   {
     id: 4,
+    name: "100%",
+    image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1767034015/premio-100porcento_vmzqa2.png"
+  },
+  {
+    id: 5,
     name: "Balão de Prata",
     image: "https://res.cloudinary.com/dxrk58emm/image/upload/v1764936479/balao-prata-pb_msdjgv.png"
   }

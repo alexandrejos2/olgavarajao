@@ -7,7 +7,7 @@ const ICONS = [ShieldCheck, MapPin, Star];
 
 const DEFAULTS: Record<string, string> = {
   section_label: 'Porquê escolher um especialista local',
-  stat_1_value: '100+',
+  stat_1_value: '200+',
   stat_1_label: 'Imóveis acompanhados',
   stat_1_sub: 'com processo estruturado',
   stat_2_value: 'Ponte de Lima',

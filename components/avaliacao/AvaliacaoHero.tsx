@@ -13,7 +13,7 @@ const DEFAULTS: Record<string, string> = {
   profile_image_url: 'https://res.cloudinary.com/dxrk58emm/image/upload/v1772799577/olga-varajao_ywiaiw.png',
   profile_name: 'Olga Varajão',
   profile_role: 'Consultora RE/MAX Move Limiana',
-  stat_1_value: '100+',
+  stat_1_value: '200+',
   stat_1_label: 'Imóveis acompanhados',
   stat_2_value: '15+',
   stat_2_label: 'Anos de experiência',

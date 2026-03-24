@@ -51,7 +51,7 @@ const AdminAwards: React.FC = () => {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-serif font-bold text-slate-900">Premios</h1>
+        <h1 className="text-2xl font-serif font-bold text-slate-900">Prémios</h1>
         <div className="flex gap-2">
           <button onClick={addItem} className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-colors">
             <Plus className="w-4 h-4" /> Adicionar

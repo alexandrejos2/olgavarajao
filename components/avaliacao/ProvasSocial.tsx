@@ -10,7 +10,7 @@ const DEFAULTS: Record<string, string> = {
   stat_1_value: '100+',
   stat_1_label: 'Imóveis acompanhados',
   stat_1_sub: 'com processo estruturado',
-  stat_2_value: 'Évora',
+  stat_2_value: 'Ponte de Lima',
   stat_2_label: 'Especialização local',
   stat_2_sub: 'conhecimento profundo do mercado',
   stat_3_value: '100%',

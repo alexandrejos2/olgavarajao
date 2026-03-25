@@ -216,20 +216,25 @@ const DesktopCarousel: React.FC<{ properties: PropertyRow[]; isBuy: boolean }> =
 
   const [currentPage, setCurrentPage] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isPausedRef = useRef(false);
 
   const extendedPages = totalPages > 0 ? [pages[totalPages - 1], ...pages, pages[0]] : [];
 
+  const applyOffset = useCallback((page: number, animate: boolean) => {
+    if (!trackRef.current || !containerRef.current) return;
+    const w = containerRef.current.offsetWidth;
+    trackRef.current.style.transition = animate
+      ? `transform ${DESKTOP_TRANSITION_MS}ms cubic-bezier(0.4,0,0.2,1)`
+      : 'none';
+    trackRef.current.style.transform = `translateX(${-(page + 1) * w}px)`;
+  }, []);
+
   useEffect(() => {
-    if (trackRef.current) {
-      trackRef.current.style.transition = isTransitioning
-        ? `transform ${DESKTOP_TRANSITION_MS}ms cubic-bezier(0.4,0,0.2,1)`
-        : 'none';
-      trackRef.current.style.transform = `translateX(${-(currentPage + 1) * 100}%)`;
-    }
-  }, [currentPage, isTransitioning]);
+    applyOffset(currentPage, isTransitioning);
+  }, [currentPage, isTransitioning, applyOffset]);
 
   useEffect(() => {
     if (!isTransitioning) {
@@ -278,26 +283,29 @@ const DesktopCarousel: React.FC<{ properties: PropertyRow[]; isBuy: boolean }> =
     return stopAutoPlay;
   }, [startAutoPlay, stopAutoPlay, totalPages]);
 
+  useEffect(() => {
+    const handleResize = () => applyOffset(currentPage, false);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [currentPage, applyOffset]);
+
   const realPage = totalPages > 0 ? ((currentPage % totalPages) + totalPages) % totalPages : 0;
 
   if (totalPages === 0) return null;
 
   return (
     <div
+      ref={containerRef}
       className="relative overflow-hidden"
       onMouseEnter={() => { isPausedRef.current = true; }}
       onMouseLeave={() => { isPausedRef.current = false; }}
     >
-      <div
-        ref={trackRef}
-        className="flex"
-        style={{ width: `${extendedPages.length * 100}%` }}
-      >
+      <div ref={trackRef} className="flex">
         {extendedPages.map((page, pageIdx) => (
           <div
             key={pageIdx}
-            className="grid grid-cols-3 gap-8"
-            style={{ width: `${100 / extendedPages.length}%`, flexShrink: 0 }}
+            className="grid grid-cols-3 gap-8 flex-shrink-0"
+            style={{ width: '100%' }}
           >
             {page.map((property) => (
               <PropertyCard key={property.id} property={property} isBuy={isBuy} />

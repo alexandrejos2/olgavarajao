@@ -17,8 +17,10 @@ const DEFAULTS: Record<string, string> = {
 
 const CARD_WIDTH_VW = 85;
 const GAP_PX = 16;
-const AUTO_PLAY_MS = 3500;
-const TRANSITION_MS = 500;
+const AUTO_PLAY_MS = 4000;
+const TRANSITION_MS = 600;
+const DESKTOP_AUTO_PLAY_MS = 4500;
+const DESKTOP_TRANSITION_MS = 700;
 
 const PropertyCard: React.FC<{ property: PropertyRow; isBuy: boolean }> = ({ property, isBuy }) => (
   <div className="group bg-white overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500  flex flex-col h-full border border-gold-100/30">
@@ -204,6 +206,133 @@ const MobileCarousel: React.FC<{ properties: PropertyRow[]; isBuy: boolean }> = 
   );
 };
 
+const DesktopCarousel: React.FC<{ properties: PropertyRow[]; isBuy: boolean }> = ({ properties, isBuy }) => {
+  const PAGE_SIZE = 3;
+  const pages: PropertyRow[][] = [];
+  for (let i = 0; i < properties.length; i += PAGE_SIZE) {
+    pages.push(properties.slice(i, i + PAGE_SIZE));
+  }
+  const totalPages = pages.length;
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isPausedRef = useRef(false);
+
+  const extendedPages = totalPages > 0 ? [pages[totalPages - 1], ...pages, pages[0]] : [];
+
+  useEffect(() => {
+    if (trackRef.current) {
+      trackRef.current.style.transition = isTransitioning
+        ? `transform ${DESKTOP_TRANSITION_MS}ms cubic-bezier(0.4,0,0.2,1)`
+        : 'none';
+      trackRef.current.style.transform = `translateX(${-(currentPage + 1) * 100}%)`;
+    }
+  }, [currentPage, isTransitioning]);
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsTransitioning(true);
+        });
+      });
+    }
+  }, [isTransitioning]);
+
+  const jumpIfNeeded = useCallback(() => {
+    if (currentPage >= totalPages) {
+      setIsTransitioning(false);
+      setCurrentPage(0);
+    } else if (currentPage < 0) {
+      setIsTransitioning(false);
+      setCurrentPage(totalPages - 1);
+    }
+  }, [currentPage, totalPages]);
+
+  useEffect(() => {
+    const timeout = setTimeout(jumpIfNeeded, DESKTOP_TRANSITION_MS);
+    return () => clearTimeout(timeout);
+  }, [jumpIfNeeded]);
+
+  const startAutoPlay = useCallback(() => {
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    autoPlayRef.current = setInterval(() => {
+      if (!isPausedRef.current) {
+        setIsTransitioning(true);
+        setCurrentPage(prev => prev + 1);
+      }
+    }, DESKTOP_AUTO_PLAY_MS);
+  }, []);
+
+  const stopAutoPlay = useCallback(() => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (totalPages > 1) startAutoPlay();
+    return stopAutoPlay;
+  }, [startAutoPlay, stopAutoPlay, totalPages]);
+
+  const realPage = totalPages > 0 ? ((currentPage % totalPages) + totalPages) % totalPages : 0;
+
+  if (totalPages === 0) return null;
+
+  return (
+    <div
+      className="relative overflow-hidden"
+      onMouseEnter={() => { isPausedRef.current = true; }}
+      onMouseLeave={() => { isPausedRef.current = false; }}
+    >
+      <div
+        ref={trackRef}
+        className="flex"
+        style={{ width: `${extendedPages.length * 100}%` }}
+      >
+        {extendedPages.map((page, pageIdx) => (
+          <div
+            key={pageIdx}
+            className="grid grid-cols-3 gap-8"
+            style={{ width: `${100 / extendedPages.length}%`, flexShrink: 0 }}
+          >
+            {page.map((property) => (
+              <PropertyCard key={property.id} property={property} isBuy={isBuy} />
+            ))}
+            {page.length < PAGE_SIZE && Array.from({ length: PAGE_SIZE - page.length }).map((_, i) => (
+              <div key={`placeholder-${i}`} className="invisible" />
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {totalPages > 1 && (
+        <div className="flex justify-center gap-2 mt-10">
+          {pages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setIsTransitioning(true);
+                setCurrentPage(index);
+                stopAutoPlay();
+                startAutoPlay();
+              }}
+              className={`transition-all duration-300 ${index === realPage
+                ? 'w-8 h-2 bg-gold-500'
+                : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+              aria-label={`Ver grupo ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Properties: React.FC<PropertiesProps> = ({ activeTab }) => {
   const isBuy = activeTab === 'buy';
   const [isMobile, setIsMobile] = useState(false);
@@ -250,13 +379,7 @@ const Properties: React.FC<PropertiesProps> = ({ activeTab }) => {
         {isMobile ? (
           <MobileCarousel properties={properties} isBuy={isBuy} />
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.map((property, index) => (
-              <Reveal key={property.id} delay={index * 0.15} width="100%">
-                <PropertyCard property={property} isBuy={isBuy} />
-              </Reveal>
-            ))}
-          </div>
+          <DesktopCarousel properties={properties} isBuy={isBuy} />
         )}
       </div>
     </section>
